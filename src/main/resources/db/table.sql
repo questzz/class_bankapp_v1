@@ -1,3 +1,4 @@
+
 -- 유저 테이블 설계해 보기 
 CREATE TABLE user_tb(
 	id int AUTO_INCREMENT PRIMARY KEY, 
