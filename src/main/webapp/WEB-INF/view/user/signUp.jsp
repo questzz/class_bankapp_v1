@@ -19,7 +19,7 @@
 				<label for="fullname">Fullname:</label>
 				<input type="text" class="form-control" placeholder="Enter fullname" id="fullname" name="fullname">
 			</div>
-			<button type="submit" class="btn btn-primary">Submit</button>
+			<button type="submit" class="btn btn-primary">회원가입</button>
 		</form>
 	</div>
 	<br>
