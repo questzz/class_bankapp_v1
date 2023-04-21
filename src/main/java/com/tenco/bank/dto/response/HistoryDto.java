@@ -16,16 +16,14 @@ public class HistoryDto {
 	private String receiver; 
 	private Timestamp createdAt;
 	
-	
 	public String formatCreatedAt() {
 		return TimestampUtil.timestampToString(createdAt);
 	}
 	
-	public String formatBalance() {
+	public String formatMoney(Long momey) {
 		DecimalFormat df = new DecimalFormat("#,###");
-		String formatNumber = df.format(balance);
+		String formatNumber = df.format(momey);
 		return formatNumber + "원";
 	}
-	
 	
 }
