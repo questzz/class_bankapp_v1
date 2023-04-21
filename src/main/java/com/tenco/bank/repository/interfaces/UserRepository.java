@@ -19,4 +19,7 @@ public interface UserRepository {
 	
 	// 추가 작업 
 	public User findByUsernameAndPassword(SignInFormDto signInFormDto);
+	// 암호화 적용 추 기능 추가 
+	public User findByUsername(SignInFormDto signInFormDto);
+	
 }

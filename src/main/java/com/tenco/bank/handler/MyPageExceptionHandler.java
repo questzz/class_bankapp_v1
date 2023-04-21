@@ -1,5 +1,6 @@
 package com.tenco.bank.handler;
 
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -25,6 +26,20 @@ public class MyPageExceptionHandler {
 		modelAndView.addObject("message", e.getMessage());
 		return modelAndView;
 	}
+	
+	/**
+	 * 마이바이트스 제약 오류 처리 
+	 * @param e
+	 * @return
+	 */
+	@ExceptionHandler(DataIntegrityViolationException.class)
+	public ModelAndView dataIntegrityViolationException(DataIntegrityViolationException e) {
+		ModelAndView modelAndView = new ModelAndView("errorPage");
+		modelAndView.addObject("statusCode", HttpStatus.NOT_FOUND.value());
+		modelAndView.addObject("message", e.getMessage());
+		return modelAndView;
+	}
+	
 }
 
 
