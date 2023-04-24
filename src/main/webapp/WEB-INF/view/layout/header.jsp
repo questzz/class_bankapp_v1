@@ -27,14 +27,13 @@
 	</div>
 
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-		<a class="navbar-brand" href="#">MENU</a>
+		<a class="navbar-brand" href="/account/list">MENU</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#collapsibleNavbar">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="collapsibleNavbar">
 			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link" href="#">Home</a></li>
 				<c:choose>
 					<c:when test="${principal != null}">
 						<li class="nav-item"><a class="nav-link" href="/user/logout">로그아웃</a></li>						
@@ -53,7 +52,17 @@
 			<div class="col-sm-4">
 				<h2>About Me</h2>
 				<h5>Photo of me:</h5>
-				<div class="m--profile"></div>
+				
+				<c:choose>
+					<c:when test="${principal != null }">
+						<!-- 사용자 이미지 or 사용자 이미지  등록 안함   -->
+						<img class="m--profile" alt="" src="<c:url value="${principal.setUpUserImage()}"/>">
+					</c:when>
+					<c:otherwise>
+						<div class="m--profile"></div>
+					</c:otherwise>
+				</c:choose>
+				
 				<p style="padding: 8px 0">자라나는 코린이에 은행 관리 시스템 입니다</p>
 				<h3>Some Links</h3>
 				<p>Lorem ipsum dolor sit ame.</p>

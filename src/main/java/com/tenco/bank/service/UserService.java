@@ -47,13 +47,13 @@ public class UserService {
 		 
 		User userEntity = userRepository.findByUsername(signInFormDto);
 		
+		
 		// 계정 확인 
-		if(userEntity.getUsername().equals(signInFormDto.getUsername()) == false) {
+		if(userEntity == null || userEntity.getUsername().equals(signInFormDto.getUsername()) == false) {
 			throw new CustomRestfullException("존재하지 않는 계정 입니다.",
 					HttpStatus.INTERNAL_SERVER_ERROR);
 		}
-		
-		// 비밀번호 확인 
+		 
 		boolean isPwdMatched =  passwordEncoder.matches(signInFormDto.getPassword(),
 				userEntity.getPassword());
 		

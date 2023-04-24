@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.tenco.bank.handler.AuthInterceptor;
@@ -25,7 +26,14 @@ public class WebMvcConfig implements WebMvcConfigurer {
 				.addPathPatterns("/auth/**");  // 1. path 더 추가 하능 방법
 		// 인터 셉터 등록 
 		//registry.addInterceptor(new AdminInterceptor()) // 2. 인터셉터 등록 방법 
-		
+	}
+	
+	// 리소드 등록 처리 
+	// 서버 컴퓨터에 위치한 Resource를 활용하는 방법(프로젝트 외부 폴더 접근 방법)
+	@Override
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+		registry.addResourceHandler("/images/uploads/**")
+				.addResourceLocations("file:///C:\\spring_upload\\bank\\upload/");
 	}
 	
 	@Bean // Ioc 관리 대상 처리 - 싱글톤 

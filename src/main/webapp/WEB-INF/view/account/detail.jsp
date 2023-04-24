@@ -11,7 +11,7 @@
 <div class="col-sm-8 d-flex flex-column">
 	<h2>계좌 상세 보기(인증)</h2>
 	<h5>어서오세요 환영합니다</h5>
-	<div class="bg-light p-md-5 h-75">
+	<div class="bg-light p-md-5 h-75  flex-grow-1">
 		
 		<div class="user--box">
 			<h5><b>${principal.username}님</b> 계좌</h5>

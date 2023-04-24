@@ -4,7 +4,7 @@
 		</div>
 	</div>
 	
-	<div class="f-wrap">
+	<div class="f--wrap">
 		<div class="jumbotron text-center" style="margin-bottom: 0">
 			<p>Footer</p>
 		</div>
